@@ -2,20 +2,22 @@
 //È uma função que retorna HTML (JSX)
 import { Card, Col, Button } from 'antd';
 
+//TODO COMPONENTE É UMA FUNÇÃO!!!
+//É UMA FUNÇÃO QUE RETONAR HTML (JSX)
+// props = {}
 function FoodBox({ food }) {
-  //console.log('estou dentro');
+  // console.log(props) -> props é um OBJETO por isso ele pode ser descontruido!!
+
+  console.log(food); // -> name: "orange", calories: 85
 
   return (
     <Col>
-      <Card
-        title={'FOOD_NAME_HERE'}
-        style={{ width: 230, height: 300, margin: 10 }}
-      >
-        <img src={'FOOD_IMAGE_HERE'} height={60} alt="food" />
-        <p>Calories: FOOD_CALORIES_HERE</p>
-        <p>Servings: FOOD_SERVINGS_HERE</p>
+      <Card title={food.name} style={{ width: 230, height: 300, margin: 10 }}>
+        <img src={food.image} height={60} alt="food" />
+        <p>Calories: {food.calories}</p>
+        <p>Servings: {food.servings}</p>
         <p>
-          <b>Total Calories: FOOD_CALORIES * FOOD_SERVINGS </b> kcal
+          <b>Total Calories: {food.calories * food.servings} </b> kcal
         </p>
         <Button type="primary"> Delete </Button>
       </Card>
