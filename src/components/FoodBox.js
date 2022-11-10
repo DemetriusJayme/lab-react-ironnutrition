@@ -5,7 +5,7 @@ import { Card, Col, Button } from 'antd';
 //TODO COMPONENTE É UMA FUNÇÃO!!!
 //É UMA FUNÇÃO QUE RETONAR HTML (JSX)
 // props = {}
-function FoodBox({ food }) {
+function FoodBox({ food, allFoods, setAllFoods }) {
   // console.log(props) -> props é um OBJETO por isso ele pode ser descontruido!!
 
   console.log(food); // -> name: "orange", calories: 85

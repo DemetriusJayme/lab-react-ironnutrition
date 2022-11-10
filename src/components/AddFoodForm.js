@@ -1,6 +1,6 @@
 import { Divider, Input } from 'antd';
 import { useState } from 'react';
-function AddFoodForm() {
+function AddFoodForm({ allFoods, setAllFoods }) {
   const [form, setForm] = useState({
     name: '',
     image: '',
@@ -10,8 +10,14 @@ function AddFoodForm() {
   function handleChange(e) {
     console.log(e.target.name); // -> me trás o nome do input -> o nome da minha key do obj form
     console.log(e.target.value); // -> me trás a tecla pressionada!
+    setForm({ ...form, [e.target.name]: e.target.value });
   }
   console.log(form);
+  function handleSubmit(e) {
+    e.preventDefault();
+    //é responsável por guardar o form preenchido em algum lugar -> allFoods
+    setAllFoods([...allFoods, form]);
+  }
   return (
     <form>
       <Divider>Add Food Entry</Divider>
@@ -43,6 +49,7 @@ function AddFoodForm() {
         value={form.servings}
         onChange={handleChange}
       />
+      <button onClick={handleSubmit}>Salvar food!</button>
     </form>
   );
 }
